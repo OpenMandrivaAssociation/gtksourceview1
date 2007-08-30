@@ -1,12 +1,13 @@
 %define api_version	1.0
 %define lib_major 0
-%define lib_name	%mklibname %{oname}- %{api_version} %{lib_major}
+%define libname	%mklibname %{oname}- %{api_version} %{lib_major}
+%define libnamedev %mklibname -d %{oname}- %{api_version}
 %define oname gtksourceview
 
 Summary:	Source code viewing library
 Name:		gtksourceview1
 Version: 1.8.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Editors
 URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
@@ -24,31 +25,28 @@ GtkSourceview is a library that adds syntax highlighting,
 line numbers, and other programming-editor features.
 GtkSourceView specializes these features for a code editor.
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	Source code viewing library
 Group:		Editors
 Requires:	%{name} >= %{version}-%{release}
 Provides:	lib%{name} = %{version}-%{release}
 Provides: gtksourceview1.0 = %version
 
-%description -n %{lib_name}
+%description -n %{libname}
 GtkSourceview is a library that adds syntax highlighting,
 line numbers, and other programming-editor features.
 GtkSourceView specializes these features for a code editor.
 
-%package -n %{lib_name}-devel
+%package -n %{libnamedev}
 Summary:        Libraries and include files for GtkSourceView
 Group:          Development/GNOME and GTK+
-Requires:       %{lib_name} = %{version}
+Requires:       %{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
-Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
-Provides:	libgtksourceview0-devel = %{version}-%{release}
-Obsoletes:	libgtksourceview0-devel
-Provides:   libgtksourceview1.0-devel = %{version}-%{release}
-Obsoletes:   libgtksourceview1.0-devel
+Provides:	lib%{oname}-%{api_version}-devel = %{version}-%{release}
+Obsoletes: %mklibname -d %{oname}- %{api_version} %{lib_major}
 
-%description -n %{lib_name}-devel
+%description -n %{libnamedev}
 GtkSourceView development files 
 
 
@@ -68,9 +66,9 @@ rm -rf %{buildroot}
 
 %{find_lang} %{oname}-%{api_version}
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %clean
 rm -rf %{buildroot}
@@ -80,11 +78,11 @@ rm -rf %{buildroot}
 %doc AUTHORS NEWS README TODO
 %{_datadir}/gtksourceview-%{api_version}
 
-%files -n %{lib_name} 
+%files -n %{libname} 
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/libgtksourceview-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr(-,root,root)
 %doc %{_datadir}/gtk-doc/html/gtksourceview
 %{_libdir}/*.so
