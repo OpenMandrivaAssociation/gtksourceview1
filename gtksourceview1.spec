@@ -12,6 +12,7 @@ License:	GPL
 Group:		Editors
 URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{oname}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	libgtk+2-devel >= 2.3.0
 BuildRequires:  libgnome-vfs2-devel >= 2.2.0
 BuildRequires:  libgnomeprintui-devel >= 2.7.0
