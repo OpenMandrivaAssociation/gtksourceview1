@@ -8,7 +8,7 @@ Summary:	Source code viewing library
 Name:		gtksourceview1
 Version: 1.8.5
 Release:	%mkrel 5
-License:	GPL
+License:	GPLv2+
 Group:		Editors
 URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{oname}-%{version}.tar.bz2
@@ -16,7 +16,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	libgtk+2-devel >= 2.3.0
 BuildRequires:  libgnome-vfs2-devel >= 2.2.0
 BuildRequires:  libgnomeprintui-devel >= 2.7.0
-BuildRequires:  perl-XML-Parser
+BuildRequires:  intltool
 Conflicts:		gtksourceview-sharp <= 0.5-3mdk
 Obsoletes: gtksourceview < 1.90
 
@@ -54,7 +54,7 @@ GtkSourceView development files
 %setup -q -n %oname-%version
 
 %build
-
+export CPPFLAGS=-D_GNU_SOURCE=1
 %configure2_5x
 
 %make
