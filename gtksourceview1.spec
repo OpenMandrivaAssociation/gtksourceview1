@@ -13,6 +13,7 @@ Group:		Editors
 URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{oname}-%{version}.tar.bz2
 Patch0:		gtksourceview-1.8.5-fix-str-fmt.patch
+Patch1:		gtksourceview-1.8.5_glib_h.patch
 
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:  pkgconfig(gnome-vfs-2.0)
@@ -50,7 +51,7 @@ GtkSourceView development files
 
 %prep
 %setup -qn %{oname}-%{version}
-%patch0 -p0
+%apply_patches
 
 %build
 export CPPFLAGS=-D_GNU_SOURCE=1
