@@ -1,0 +1,10 @@
+--- a/tests/test-widget.c.str	2009-05-20 04:26:18.000000000 +0200
++++ a/tests/test-widget.c	2009-05-20 04:26:27.000000000 +0200
+@@ -190,6 +190,7 @@
+ 					 GTK_DIALOG_DESTROY_WITH_PARENT,
+ 					 GTK_MESSAGE_ERROR,
+ 					 GTK_BUTTONS_OK,
++					 "%s",
+ 					 tmp);
+ 	g_free (tmp);
+ 	

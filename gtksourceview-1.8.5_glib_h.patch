@@ -1,0 +1,32 @@
+--- gtksourceview-1.8.5/gtksourceview/gtksourceregex.h~	2007-01-03 08:40:28.000000000 -0700
++++ gtksourceview-1.8.5/gtksourceview/gtksourceregex.h	2011-12-23 21:07:00.184617883 -0700
+@@ -20,7 +20,7 @@
+ #ifndef __GTK_SOURCE_REGEX_H__
+ #define __GTK_SOURCE_REGEX_H__
+ 
+-#include <glib/gtypes.h>
++#include <glib.h>
+ 
+ G_BEGIN_DECLS
+ 
+--- gtksourceview-1.8.5/gtksourceview/gtksourcelanguage.c~	2007-01-03 08:40:28.000000000 -0700
++++ gtksourceview-1.8.5/gtksourceview/gtksourcelanguage.c	2011-12-23 21:21:35.807616931 -0700
+@@ -30,8 +30,7 @@
+ 
+ #include <libxml/xmlreader.h>
+ 
+-#include <glib/gstdio.h>
+-#include <glib/gmappedfile.h>
++#include <glib.h>
+ 
+ #include "gtksourceview-i18n.h"
+ 
+@@ -1173,7 +1173,7 @@
+ 		doc = xmlParseMemory (g_mapped_file_get_contents (mf), 
+ 				      g_mapped_file_get_length (mf));
+ 
+-		g_mapped_file_free (mf);
++		g_mapped_file_unref (mf);
+ 	}
+ 	
+ 	if (doc == NULL)
