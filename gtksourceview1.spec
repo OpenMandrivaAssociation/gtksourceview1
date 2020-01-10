@@ -52,7 +52,7 @@ GtkSourceView development files.
 
 %prep
 %setup -qn %{oname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 export CPPFLAGS=-D_GNU_SOURCE=1
