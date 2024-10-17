@@ -13,7 +13,7 @@ Version:	1.8.5
 Release:	24
 License:	GPLv2+
 Group:		Editors
-Url:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
+Url:		https://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gtksourceview/%{url_ver}/%{oname}-%{version}.tar.bz2
 Patch0:		gtksourceview-1.8.5-fix-str-fmt.patch
 Patch1:		gtksourceview-1.8.5_glib_h.patch
