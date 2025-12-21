@@ -18,6 +18,11 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gtksourceview/%{url_ver}/%{oname}
 Patch0:		gtksourceview-1.8.5-fix-str-fmt.patch
 Patch1:		gtksourceview-1.8.5_glib_h.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gnome-vfs-2.0)
 BuildRequires:	pkgconfig(gtk+-2.0)
